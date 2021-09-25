@@ -3,8 +3,10 @@ package com.example.mediatimerjp.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mediatimerjp.R
@@ -113,6 +115,14 @@ class GroupFragment : Fragment() {
                 binding.imageView.setImageResource(R.drawable.ic_baseline_favorite_24)
                 wrapper.mainFavSelected=true
             }
+
+        }
+        binding.inputSelector.setOnClickListener {
+            val navController = Navigation.findNavController(binding.root)
+            val bundle = bundleOf("timer" to viewModel.group)
+            navController.navigate(
+                R.id.action_groupFragment_to_groupOptionsFragment,
+                bundle)
 
         }
         if (wrapper.mainFavSelected){

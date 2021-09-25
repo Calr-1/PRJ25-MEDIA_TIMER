@@ -4,11 +4,11 @@ import android.util.Log
 import com.example.mediatimerjp.database.Database
 
 
-class TimerGroup(var actualTime: Long) {
+class  TimerGroup(var actualTime: Long) {
 
     var mode = "HH/MM/SS"
     var sequence = true
-    private var stopAtZero = false
+    var stopAtZero = false
     var skipGroups = false
     private var currentRunning = 0
     var propagateTheme = true

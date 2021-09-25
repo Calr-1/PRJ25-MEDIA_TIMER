@@ -72,6 +72,9 @@
         <action
             android:id="@+id/action_groupFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_groupFragment_to_groupOptionsFragment"
+            app:destination="@id/groupOptionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/simpleTimerFragment"
@@ -135,4 +138,10 @@
         android:name="com.example.mediatimerjp.ui.AlarmFragment"
         android:label="fragment_alarm"
         tools:layout="@layout/fragment_alarm" />
+    <fragment
+        android:id="@+id/groupOptionsFragment"
+        android:name="com.example.mediatimerjp.ui.GroupOptionsFragment"
+        android:label="GroupOptionsFragment"
+        tools:layout="@layout/fragment_group_options" />
+
 </navigation>

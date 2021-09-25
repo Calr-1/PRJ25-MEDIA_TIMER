@@ -126,4 +126,9 @@
     <string name="volume_value_default">100</string>
     <string name="initial_sound_time">0:0</string>
     <string name="final_sound_time">10:10</string>
+    <string name="group_options">Opções de grupo</string>
+    <string name="run_timers_sequentially">Correr temporizadores sequencialmente</string>
+    <string name="stops_zeros">Enquanto corre sequencialmente, parar se atingir um temporizador com tempo a 0</string>
+    <string name="skip_groups">Enquanto corre sequencialmente, ignorar grupos</string>
+    <string name="propagate_colors">Quando mudar as cores do grupo, propagar para os temporizadores dentro deste</string>
 </resources>
