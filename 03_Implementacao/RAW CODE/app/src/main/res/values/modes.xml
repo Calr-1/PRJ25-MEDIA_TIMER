@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="modes_array">
+        <item>HH/MM/SS</item>
+        <item>DD/HH/MM</item>
+    </string-array>
+</resources>

@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ProgressiveTimerFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/progressiveTimerSeparator"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_margin="1dp"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView7"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/NotificationsText1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center_vertical"
+                        android:text="@string/progressive_timer"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/enableProgressiveTimer"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/options_main_separator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progressiveTimerSeparator" />
+
+                <Space
+                    android:id="@+id/space1"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progressiveTimerSeparator" />
+
+                <LinearLayout
+                    android:id="@+id/progressiveTimerDescriptionLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progressiveTimerSeparator">
+
+                    <TextView
+                        android:id="@+id/progressiveTimerDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="@string/prog_desc"
+                        android:textAlignment="viewStart"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/options_main_separator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progressiveTimerDescriptionLayout" />
+
+                <Space
+                    android:id="@+id/space2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progressiveTimerDescriptionLayout" />
+
+                <LinearLayout
+                    android:id="@+id/personalizeProgressiveTimerLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@+id/progressiveTimerDescriptionLayout"
+                    app:layout_constraintStart_toStartOf="@+id/progressiveTimerDescriptionLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/space2">
+
+                    <TextView
+                        android:id="@+id/typeOfNotificationText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center_vertical"
+                        android:text="@string/rule_personalization"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/options_separator"
+                    app:layout_constraintTop_toBottomOf="@+id/personalizeProgressiveTimerLayout" />
+
+                <Space
+                    android:id="@+id/space3"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+
+                <LinearLayout
+                    android:id="@+id/maxValuesLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="0dp"
+                    android:background="@drawable/options_delimiter"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/space3">
+
+                    <LinearLayout
+                        android:id="@+id/maxValuesTextLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/maxMinValuesText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="10dp"
+                            android:text="@string/maximum_timer_value"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/maxValuesInputLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/maxHoursEditInterval"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="0dp"
+                            android:gravity="bottom|center_horizontal"
+                            android:hint="@string/hints"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/hours_string"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/maxHoursIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginEnd="1dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="0.02"
+                            android:gravity="bottom|center"
+                            android:text="@string/separator1"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/maxMinutesEditInterval"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="0dp"
+                            android:layout_marginStart="1dp"
+                            android:layout_weight="0.2"
+                            android:gravity="bottom|center_horizontal"
+                            android:hint="@string/hints"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/minutes_string"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/maxMinutesIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginEnd="1dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="0.02"
+                            android:gravity="bottom|center"
+                            android:text="@string/separator2"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/maxSecondsEditInterval"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="0dp"
+                            android:layout_marginStart="1dp"
+                            android:layout_weight="0.2"
+                            android:gravity="bottom|center_horizontal"
+                            android:hint="@string/hints"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/seconds_string"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/maxSecondsIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="0.02"
+                            android:gravity="bottom|center"
+                            android:text="@string/separator3"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/options_separator"
+                    app:layout_constraintTop_toBottomOf="@+id/maxValuesLayout" />
+
+                <Space
+                    android:id="@+id/space13"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+                <LinearLayout
+                    android:id="@+id/increaseLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@+id/progressiveTimerDescriptionLayout"
+                    app:layout_constraintStart_toStartOf="@+id/progressiveTimerDescriptionLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/maxValuesLayout">
+
+                    <TextView
+                        android:id="@+id/increaseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center|center_vertical"
+                        android:text="@string/what_it_takes_to_increase"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/options_separator"
+                    app:layout_constraintTop_toBottomOf="@+id/increaseLayout" />
+
+                <Space
+                    android:id="@+id/space4"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintTop_toBottomOf="@+id/increaseLayout" />
+
+                <LinearLayout
+                    android:id="@+id/chooseMeasurementIncreaseLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/options_delimiter"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/space4">
+
+                    <LinearLayout
+                        android:id="@+id/increaseMeasurementTextLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.9"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/chooseMeasurementIncreaseText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="10dp"
+                            android:text="@string/k_unit"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/increaseMeasurementInputLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/measurementIncreaseSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:entries="@array/measurement_array" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/options_separator"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseMeasurementIncreaseLayout" />
+
+                <Space
+                    android:id="@+id/space5"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseMeasurementIncreaseLayout" />
+
+                <LinearLayout
+                    android:id="@+id/ConsecutiveIncreaseLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="0dp"
+                    android:background="@drawable/options_delimiter"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/space5">
+
+                    <LinearLayout
+                        android:id="@+id/increaseConsecutiveTextLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/ConsecutiveIncreaseText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="10dp"
+                            android:text="@string/t_consecutive_k"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/increaseConsecutiveInputLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/ConsecutiveIncrease"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="5dp"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/_5"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            tools:ignore="LabelFor,RtlCompat" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/options_separator"
+                    app:layout_constraintTop_toBottomOf="@+id/ConsecutiveIncreaseLayout" />
+
+                <Space
+                    android:id="@+id/space6"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintTop_toBottomOf="@+id/ConsecutiveIncreaseLayout" />
+
+                <LinearLayout
+                    android:id="@+id/secondsToIncreaseLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="0dp"
+                    android:background="@drawable/options_delimiter"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/space6">
+
+                    <LinearLayout
+                        android:id="@+id/increaseSecondsTextLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.2"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/secondsToIncreaseText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="10dp"
+                            android:text="@string/seconds_to_increase"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/increaseSecondsInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/secondsToIncrease"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="5dp"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/_15"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            tools:ignore="LabelFor,RtlCompat" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/options_separator"
+                    app:layout_constraintTop_toBottomOf="@+id/secondsToIncreaseLayout" />
+
+                <Space
+                    android:id="@+id/space7"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintTop_toBottomOf="@+id/secondsToIncreaseLayout" />
+
+                <LinearLayout
+                    android:id="@+id/historyProgressiveTimerLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@+id/secondsToIncreaseLayout"
+                    app:layout_constraintStart_toStartOf="@+id/secondsToIncreaseLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/space7">
+
+                    <TextView
+                        android:id="@+id/checkHistorySeparator"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center_vertical"
+                        android:text="@string/history"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/options_separator"
+                    app:layout_constraintTop_toBottomOf="@+id/historyProgressiveTimerLayout" />
+
+                <Space
+                    android:id="@+id/space12"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintTop_toBottomOf="@+id/historyProgressiveTimerLayout" />
+
+                <LinearLayout
+                    android:id="@+id/checkHistoryLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/options_delimiter"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/space12">
+
+                    <TextView
+                        android:id="@+id/checkHistoryTextText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="@string/check_history"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>

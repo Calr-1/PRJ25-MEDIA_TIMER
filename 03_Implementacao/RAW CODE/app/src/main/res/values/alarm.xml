@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="alarm_array">
+        <item>Repetitions</item>
+        <item>Time</item>
+    </string-array>
+</resources>

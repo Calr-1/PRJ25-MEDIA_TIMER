@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.mediatimerjp.ui.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_groupFragment"
+            app:destination="@id/groupFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_simpleTimerFragment"
+            app:destination="@id/simpleTimerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_fullScreenTimerFragment"
+            app:destination="@id/fullScreenTimerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_ChangeThemeFragment"
+            app:destination="@id/ChangeThemeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentColorPicker"
+            app:destination="@id/fragmentColorPicker" />
+    </fragment>
+    <fragment
+        android:id="@+id/ChangeThemeFragment"
+        android:name="com.example.mediatimerjp.ui.ChangeThemeFragment"
+        android:label="fragmen_change_theme"
+        tools:layout="@layout/fragment_change_theme" />
+    <fragment
+        android:id="@+id/fragmentColorPicker"
+        android:name="com.example.mediatimerjp.ui.ColorPickerFragment"
+        android:label="fragment_color_picker"
+        tools:layout="@layout/fragment_color_picker" />
+    <fragment
+        android:id="@+id/timerThemeFragment"
+        android:name="com.example.mediatimerjp.ui.TimerThemeFragment"
+        android:label="fragment_timer_theme"
+        tools:layout="@layout/fragment_timer_theme" >
+        <action
+            android:id="@+id/action_timerThemeFragment_to_fragmentColorPicker"
+            app:destination="@id/fragmentColorPicker" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupFragment"
+        android:name="com.example.mediatimerjp.ui.GroupFragment"
+        android:label="fragment_group"
+        tools:layout="@layout/fragment_group">
+        <action
+            android:id="@+id/action_groupFragment_to_groupFragment"
+            app:destination="@id/groupFragment" />
+        <action
+            android:id="@+id/action_groupFragment_to_simpleTimerFragment"
+            app:destination="@id/simpleTimerFragment" />
+        <action
+            android:id="@+id/action_groupFragment_to_timerThemeFragment"
+            app:destination="@id/timerThemeFragment" />
+        <action
+            android:id="@+id/action_groupFragment_to_ChangeThemeFragment"
+            app:destination="@id/ChangeThemeFragment" />
+        <action
+            android:id="@+id/action_groupFragment_to_fullScreenTimerFragment"
+            app:destination="@id/fullScreenTimerFragment" />
+        <action
+            android:id="@+id/action_groupFragment_to_fragmentColorPicker"
+            app:destination="@id/fragmentColorPicker" />
+        <action
+            android:id="@+id/action_groupFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/simpleTimerFragment"
+        android:name="com.example.mediatimerjp.ui.SimpleTimerFragment"
+        android:label="fragment_timer"
+        tools:layout="@layout/fragment_simple_timer">
+        <action
+            android:id="@+id/action_simpleTimerFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_simpleTimerFragment_to_progressiveTimerFragment"
+            app:destination="@id/progressiveTimerFragment" />
+        <action
+            android:id="@+id/action_simpleTimerFragment_to_alarmFragment"
+            app:destination="@id/alarmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.mediatimerjp.ui.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_notificationsFragment_to_intervalSoundsFragment"
+            app:destination="@id/intervalSoundsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/intervalSoundsFragment"
+        android:name="com.example.mediatimerjp.ui.IntervalSoundsFragment"
+        android:label="fragment_interval_sounds"
+        tools:layout="@layout/fragment_interval_sounds" />
+    <fragment
+        android:id="@+id/fullScreenTimerFragment"
+        android:name="com.example.mediatimerjp.ui.FullScreenTimerFragment"
+        android:label="fragment_full_screen_timer"
+        tools:layout="@layout/fragment_full_screen_timer" />
+    <fragment
+        android:id="@+id/progressiveTimerFragment"
+        android:name="com.example.mediatimerjp.ui.ProgressiveTimerFragment"
+        android:label="fragment_progressive_timer"
+        tools:layout="@layout/fragment_progressive_timer" >
+        <action
+            android:id="@+id/action_progressiveTimerFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.example.mediatimerjp.ui.UploadFragment"
+        android:label="fragment_upload"
+        tools:layout="@layout/fragment_upload" >
+        <action
+            android:id="@+id/action_uploadFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.mediatimerjp.ui.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/alarmFragment"
+        android:name="com.example.mediatimerjp.ui.AlarmFragment"
+        android:label="fragment_alarm"
+        tools:layout="@layout/fragment_alarm" />
+</navigation>

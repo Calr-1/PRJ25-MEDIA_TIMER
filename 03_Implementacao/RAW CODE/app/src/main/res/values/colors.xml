@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparentGray">#80D1CDCD</color>
+    <color name="greenVisible">#aa00aa00</color>
+
+    <!-- COLORS FOR BLUE/GREY THEME-->
+    <color name="primaryColorBlueGrey">#132c33</color>
+    <color name="primaryColorVariantBlueGrey">#30545e</color>
+    <color name="primaryColorLighterBlueGrey">#687980</color>
+    <color name="primaryColorLightestBlueGrey">#ffffff</color>
+
+    <color name="onPrimaryColorBlueGrey">#ffffff</color>
+    <color name="onPrimaryLightestColorBlueGrey">#132c33</color>
+
+    <!-- COLORS FOR ORANGE THEME-->
+    <color name="primaryColorOrange">#f4501e</color>
+    <color name="primaryColorVariantOrange">#ff5622</color>
+    <color name="primaryColorLightestOrange">#ffffff</color>
+
+    <color name="onPrimaryColorOrange">#ffffff</color>
+    <color name="onPrimaryLightestColorOrange">#f4501e</color>
+
+    <!-- COLORS FOR GREEN THEME-->
+    <color name="primaryColorGreen">#008b00</color>
+    <color name="primaryColorVariantGreen">#41c300</color>
+    <color name="primaryColorLightestGreen">#ffffff</color>
+
+    <color name="onPrimaryColorGreen">#ffffff</color>
+    <color name="onPrimaryLightestColorGreen">#008b00</color>
+
+    <!-- COLORS FOR RED/BLACK THEME-->
+    <color name="primaryColorRedBlack">#ac0000</color>
+    <color name="primaryColorVariantRedBlack">#c71e17</color>
+
+    <color name="primaryColorLightestRedBlack">#ffffff</color>
+
+    <color name="onPrimaryColorRedBlack">#ffffff</color>
+    <color name="onPrimaryLightestColorRedBlack">#000000</color>
+
+    <!-- COLORS FOR BLACK THEME-->
+    <color name="primaryColorBlack">#000000</color>
+    <color name="primaryColorVariantBlack">#000000</color>
+    <color name="primaryColorLightestBlack">#ffffff</color>
+
+    <color name="onPrimaryColorBlack">#ffffff</color>
+    <color name="onPrimaryLightestColorBlack">#ffffff</color>
+
+
+</resources>

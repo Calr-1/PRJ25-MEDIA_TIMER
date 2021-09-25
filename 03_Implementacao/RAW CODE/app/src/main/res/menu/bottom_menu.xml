@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_favorite_border_24"
+        android:title="@string/favourites" />
+    <item
+        android:enabled="true"
+        android:icon="@drawable/ic_outline_add_box_24"
+        android:title="@string/create" />
+    <item
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_menu_24"
+        android:title="@string/options" />
+</menu>

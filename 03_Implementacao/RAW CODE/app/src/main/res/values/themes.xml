@@ -1,0 +1,208 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MediaTimerJP" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColorBlueGrey</item>
+        <item name="colorPrimaryVariant">@color/primaryColorVariantBlueGrey</item>
+        <item name="colorOnPrimary">@color/onPrimaryColorBlueGrey</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/primaryColorLightestBlueGrey</item>
+        <item name="android:textColorPrimary">@color/onPrimaryLightestColorBlueGrey</item>
+        <item name="android:textColorSecondary">@color/onPrimaryLightestColorBlueGrey</item>
+        <item name="android:textColorTertiary">@color/onPrimaryLightestColorBlueGrey</item>
+        <item name="android:editTextColor">@color/onPrimaryLightestColorBlueGrey</item>
+        <item name="colorControlActivated">@color/onPrimaryLightestColorBlueGrey</item>
+        <item name="colorControlHighlight">@color/onPrimaryLightestColorBlueGrey</item>
+        <item name="imageButtonStyle">@style/ImageButtonBlueGrey</item>
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationViewBlueGrey</item>
+
+    </style>
+
+    <style name="ImageButtonBlueGrey" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="android:background">@drawable/button_style_blue_grey</item>
+        <item name="android:tint">@color/onPrimaryColorBlueGrey</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationViewBlueGrey" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationViewBlueGrey
+        </item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationViewBlueGrey" parent="">
+        <item name="colorPrimary">@color/primaryColorBlueGrey</item>
+        <item name="colorOnPrimary">@color/primaryColorLightestBlueGrey</item>
+    </style>
+
+
+    <style name="Theme.MediaTimerJP.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ORANGE_THEME" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColorOrange</item>
+        <item name="colorPrimaryVariant">@color/primaryColorVariantOrange</item>
+        <item name="colorOnPrimary">@color/onPrimaryColorOrange</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/primaryColorLightestOrange</item>
+        <item name="android:textColorPrimary">@color/onPrimaryLightestColorOrange</item>
+        <item name="android:textColorSecondary">@color/onPrimaryLightestColorOrange</item>
+        <item name="android:textColorTertiary">@color/onPrimaryLightestColorOrange</item>
+        <item name="android:editTextColor">@color/onPrimaryLightestColorOrange</item>
+        <item name="colorControlActivated">@color/onPrimaryLightestColorOrange</item>
+        <item name="colorControlHighlight">@color/onPrimaryLightestColorOrange</item>
+        <item name="imageButtonStyle">@style/ImageButtonOrange</item>
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationViewOrange</item>
+
+
+    </style>
+
+    <style name="ImageButtonOrange" parent="Theme.ORANGE_THEME">
+        <item name="android:background">@drawable/button_style_orange</item>
+        <item name="android:tint">@color/primaryColorLightestOrange</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationViewOrange" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationViewOrange</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationViewOrange" parent="">
+        <item name="colorPrimary">@color/primaryColorOrange</item>
+        <item name="colorOnPrimary">@color/primaryColorLightestOrange</item>
+    </style>
+
+
+    <style name="Theme.GREEN_THEME" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColorGreen</item>
+        <item name="colorPrimaryVariant">@color/primaryColorVariantGreen</item>
+        <item name="colorOnPrimary">@color/onPrimaryColorGreen</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/primaryColorLightestGreen</item>
+        <item name="android:textColorPrimary">@color/onPrimaryLightestColorGreen</item>
+        <item name="android:textColorSecondary">@color/onPrimaryLightestColorGreen</item>
+        <item name="android:textColorTertiary">@color/onPrimaryLightestColorGreen</item>
+        <item name="android:editTextColor">@color/onPrimaryLightestColorGreen</item>
+        <item name="colorControlActivated">@color/onPrimaryLightestColorGreen</item>
+        <item name="colorControlHighlight">@color/onPrimaryLightestColorGreen</item>
+        <item name="imageButtonStyle">@style/ImageButtonGreen</item>
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationViewGreen</item>
+
+
+    </style>
+
+    <style name="ImageButtonGreen" parent="Theme.GREEN_THEME">
+        <item name="android:background">@drawable/button_style_green</item>
+        <item name="android:tint">@color/primaryColorLightestGreen</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationViewGreen" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationViewGreen</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationViewGreen" parent="">
+        <item name="colorPrimary">@color/primaryColorGreen</item>
+        <item name="colorOnPrimary">@color/primaryColorLightestOrange</item>
+    </style>
+
+    <style name="Theme.REDBLACK_THEME" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColorRedBlack</item>
+        <item name="colorPrimaryVariant">@color/primaryColorVariantRedBlack</item>
+        <item name="colorOnPrimary">@color/onPrimaryColorRedBlack</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/primaryColorLightestRedBlack</item>
+        <item name="android:textColorPrimary">@color/onPrimaryLightestColorRedBlack</item>
+        <item name="android:textColorSecondary">@color/onPrimaryLightestColorRedBlack</item>
+        <item name="android:textColorTertiary">@color/onPrimaryLightestColorRedBlack</item>
+        <item name="android:editTextColor">@color/onPrimaryLightestColorRedBlack</item>
+        <item name="colorControlActivated">@color/onPrimaryLightestColorRedBlack</item>
+        <item name="colorControlHighlight">@color/onPrimaryLightestColorRedBlack</item>
+        <item name="imageButtonStyle">@style/ImageButtonRedBlack</item>
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationViewREDBLACK</item>
+
+    </style>
+
+    <style name="ImageButtonRedBlack" parent="Theme.REDBLACK_THEME">
+        <item name="android:background">@drawable/button_style_red_black</item>
+        <item name="android:tint">@color/primaryColorLightestRedBlack</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationViewREDBLACK" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationViewREDBLACK
+        </item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationViewREDBLACK" parent="">
+        <item name="colorPrimary">@color/primaryColorRedBlack</item>
+        <item name="colorOnPrimary">@color/primaryColorLightestOrange</item>
+    </style>
+
+    <style name="Theme.BLACK_THEME" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColorBlack</item>
+        <item name="colorPrimaryVariant">@color/primaryColorVariantBlack</item>
+        <item name="colorOnPrimary">@color/onPrimaryColorBlack</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/primaryColorBlack</item>
+        <item name="android:textColorPrimary">@color/onPrimaryLightestColorBlack</item>
+        <item name="android:textColorSecondary">@color/onPrimaryLightestColorBlack</item>
+        <item name="android:textColorTertiary">@color/onPrimaryLightestColorBlack</item>
+        <item name="android:editTextColor">@color/onPrimaryLightestColorBlack</item>
+        <item name="colorControlActivated">@color/onPrimaryLightestColorBlack</item>
+        <item name="colorControlHighlight">@color/onPrimaryLightestColorBlack</item>
+        <item name="imageButtonStyle">@style/ImageButtonBlack</item>
+
+    </style>
+
+    <style name="ImageButtonBlack" parent="Theme.BLACK_THEME">
+        <item name="android:background">@drawable/button_style_black</item>
+        <item name="android:tint">@color/primaryColorLightestBlack</item>
+    </style>
+
+</resources>
