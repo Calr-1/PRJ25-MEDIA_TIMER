@@ -23,9 +23,11 @@
         <item name="colorControlHighlight">@color/onPrimaryLightestColorBlueGrey</item>
         <item name="imageButtonStyle">@style/ImageButtonBlueGrey</item>
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationViewBlueGrey</item>
-
+        <item name="android:itemTextAppearance">@style/myCustomMenuTextAppearance</item>
     </style>
-
+    <style name="myCustomMenuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
     <style name="ImageButtonBlueGrey" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="android:background">@drawable/button_style_blue_grey</item>
         <item name="android:tint">@color/onPrimaryColorBlueGrey</item>

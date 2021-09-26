@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.media.MediaMetadataRetriever
 import android.net.Uri
-import android.os.Build
 import android.preference.PreferenceManager
 import android.util.Log
 import android.widget.EditText
@@ -235,6 +234,10 @@ class TimerWrapper {
         val seconds = milliseconds / 1000 % 60
 
         return "$hours:$minutes:$seconds"
+    }
+    fun getThemeID(app: Context): Int {
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(app)
+        return sharedPreferences.getInt("currentTheme", 0)
     }
 
     @Throws(Throwable::class)

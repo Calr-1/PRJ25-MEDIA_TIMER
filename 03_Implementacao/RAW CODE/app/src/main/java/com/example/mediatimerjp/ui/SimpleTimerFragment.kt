@@ -342,13 +342,14 @@ class SimpleTimerFragment : Fragment() {
         timer.nameTextView.text = binding.groupName.text.toString()
         timer.timer!!.name = binding.groupName.text.toString()
         timer.observableName.value = binding.groupName.text.toString()
-        if (!timer.timer!!.timerRunning) {
-            timer.timer!!.currentTimerValue = TimerWrapper.getInstance().getTimerValue(
-                timer.timer!!.mode,
-                binding.secondsEditView,
-                binding.minutesEditView,
-                binding.hoursEditView
-            )
+        var time = TimerWrapper.getInstance().getTimerValue(
+            timer.timer!!.mode,
+            binding.secondsEditView,
+            binding.minutesEditView,
+            binding.hoursEditView
+        )
+        if (!timer.timer!!.timerRunning && (timer.timer!!.currentTimerValue/1000)!= (time/1000)) {
+            timer.timer!!.currentTimerValue = time
             timer.timer!!.initialTimerValue = timer.timer!!.currentTimerValue
             timer.timer!!.initialTimerForProgressBar = timer.timer!!.currentTimerValue
         }

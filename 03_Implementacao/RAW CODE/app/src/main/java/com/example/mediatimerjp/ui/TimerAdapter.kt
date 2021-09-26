@@ -153,6 +153,7 @@ class TimerAdapter :
                     item.alterButton(1)
                 } else if (item.timer?.finished == true) {
                     item.alterButton(2)
+                    binding.progressBar.progress = 100
                 }
                 timers = item
 
@@ -192,6 +193,8 @@ class TimerAdapter :
                 texts.add(binding.hoursEditView)
                 texts.add(binding.minutesEditView)
                 texts.add(binding.secondsEditView)
+                texts.add(binding.indicator)
+
                 var color: Int = item.timerColors.textColor
                 var hexColor = String.format("#%06X", 0xFFFFFF and color)
 
@@ -240,6 +243,19 @@ class TimerAdapter :
 
                 val favouriteB: ImageView = binding.favouriteTimerSelector
                 favouriteB.setColorFilter(Color.parseColor(hexColor))
+                var themeId = TimerWrapper.getInstance().getThemeID(binding.root.context)
+                if(themeId == 0){
+                    binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_vertical)
+                }
+                else if(themeId == 1){
+                    binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_orange)
+                }
+                else if(themeId == 2){
+                    binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_green)
+                }
+                else if(themeId == 3 || themeId == 4){
+                    binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_red)
+                }
             } else {
                 if (item.group!!.propagateTheme) {
 
@@ -250,6 +266,7 @@ class TimerAdapter :
                     texts.add(binding.hoursEditView)
                     texts.add(binding.minutesEditView)
                     texts.add(binding.secondsEditView)
+                    texts.add(binding.indicator)
 
                     var color: Int = item.timerColors.textColor
                     var hexColor = String.format("#%06X", 0xFFFFFF and color)
@@ -292,6 +309,8 @@ class TimerAdapter :
                     restartButton.setColorFilter(Color.parseColor(hexColor))
                     actionButton.setColorFilter(Color.parseColor(hexColor))
                     optionsButton.setColorFilter(Color.parseColor(hexColor))
+
+
 
                     color = item.timerColors.favouriteColor
                     hexColor = String.format("#%06X", 0xFFFFFF and color)
@@ -301,6 +320,20 @@ class TimerAdapter :
                     for (tm in item.group!!.timersAssociated) {
                         tm.timerColors = item.timerColors
                     }
+                    var themeId = TimerWrapper.getInstance().getThemeID(binding.root.context)
+
+                    if(themeId == 0){
+                        binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_vertical)
+                    }
+                    else if(themeId == 1){
+                        binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_orange)
+                    }
+                    else if(themeId == 2){
+                        binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_green)
+                    }
+                    else if(themeId == 3 || themeId == 4){
+                        binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_red)
+                    }
                 } else {
                     val texts: ArrayList<Any> = ArrayList<Any>()
                     texts.add(binding.timerFragName)
@@ -309,6 +342,7 @@ class TimerAdapter :
                     texts.add(binding.hoursEditView)
                     texts.add(binding.minutesEditView)
                     texts.add(binding.secondsEditView)
+                    texts.add(binding.indicator)
 
                     var color: Int = item.timerColors.textColor
                     var hexColor = String.format("#%06X", 0xFFFFFF and color)
@@ -358,6 +392,20 @@ class TimerAdapter :
 
                     val favouriteB: ImageView = binding.favouriteTimerSelector
                     favouriteB.setColorFilter(Color.parseColor(hexColor))
+                    var themeId = TimerWrapper.getInstance().getThemeID(binding.root.context)
+                    if(themeId == 0){
+                        binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_vertical)
+                    }
+                    else if(themeId == 1){
+                        binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_orange)
+                    }
+                    else if(themeId == 2){
+                        binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_green)
+                    }
+                    else if(themeId == 3 || themeId == 4){
+                        binding.progressBar.progressDrawable = binding.root.context.getDrawable(R.drawable.progress_red)
+                    }
+
                 }
             }
             if (item.selecting) {

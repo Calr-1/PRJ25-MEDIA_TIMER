@@ -590,70 +590,13 @@ class Timer(
             "Day" -> {
                 if (days > 1) {
                     consecutiveIncreaseCounter = 1
-
-                    /*when (measurementDecrease) {
-                        "Day" -> {
-                            Toast.makeText(
-                                context,
-                                "Days:$days, Consecutive DECREASE counter: $consecutiveDecreaseCounter, Consecutive necessary: $consecutiveDecrease",
-                                Toast.LENGTH_LONG
-                            ).show()
-                            consecutiveDecreaseCounter = days
-
-                            if (consecutiveDecreaseCounter >= consecutiveDecrease) {
-                                //REDUZIR O INITIAL TIME
-                                initialTimerValue -= secondsDecrease * 1000
-                                if(initialTimerValue<minProgressiveValue) initialTimerValue = minProgressiveValue
-                                arrayDates.clear()
-                                arrayTimes.clear()
-                                arrayDates.add(thisDateArray)
-                                arrayTimes.add(initialTimerValue)
-                                arrayDatesHistory.add(thisDateArray)
-                                arrayTimesHistory.add(initialTimerValue)
-                            }
-                        }
-                        "Week" -> {
-                            consecutiveDecreaseCounter = weeks
-                            if (consecutiveDecreaseCounter >= consecutiveDecrease) {
-                                //REDUZIR O INITIAL TIME
-                                initialTimerValue -= secondsDecrease * 1000
-                                if(initialTimerValue<minProgressiveValue) initialTimerValue = minProgressiveValue
-                                arrayDates.clear()
-                                arrayTimes.clear()
-                                arrayDates.add(thisDateArray)
-                                arrayTimes.add(initialTimerValue)
-                                arrayDatesHistory.add(thisDateArray)
-                                arrayTimesHistory.add(initialTimerValue)
-                            }
-                        }
-                        "Month" -> {
-                            consecutiveDecreaseCounter = months
-                            if (consecutiveDecreaseCounter >= consecutiveDecrease) {
-                                //REDUZIR O INITIAL TIME
-                                initialTimerValue -= secondsDecrease * 1000
-                                if(initialTimerValue<minProgressiveValue) initialTimerValue = minProgressiveValue
-                                arrayDates.clear()
-                                arrayTimes.clear()
-                                arrayDates.add(thisDateArray)
-                                arrayTimes.add(initialTimerValue)
-                                arrayDatesHistory.add(thisDateArray)
-                                arrayTimesHistory.add(initialTimerValue)
-                            }
-                        }
-                    }*/
                 } else if (days == 1) {
                     if (consecutiveIncreaseCounter < consecutiveIncrease) {
                         consecutiveIncreaseCounter++
-                        arrayDatesHistory.add(thisDateArray)
-                        arrayTimesHistory.add(initialTimerValue)
                     }
                     if (consecutiveIncreaseCounter == consecutiveIncrease) {
                         arrayDates.clear()
                         arrayTimes.clear()
-                        arrayDates.add(thisDateArray)
-                        arrayTimes.add(initialTimerValue)
-                        arrayDatesHistory.add(thisDateArray)
-                        arrayTimesHistory.add(initialTimerValue)
                         //AUMENTAR O INITIAL TIME
                         initialTimerValue += secondsIncrease * 1000
                         initialTimerForProgressBar+= secondsIncrease * 1000
@@ -663,70 +606,26 @@ class Timer(
                         }
                         consecutiveIncreaseCounter = 0
                     }
+                    arrayDatesHistory.add(thisDateArray)
+                    arrayTimesHistory.add(initialTimerValue)
+                }
+                else{
+                    arrayDatesHistory.add(thisDateArray)
+                    arrayTimesHistory.add(initialTimerValue)
                 }
             }
             "Week" -> {
                 if (weeks > 1) {
                     consecutiveIncreaseCounter = 1
 
-                    /*when (measurementDecrease) {
-                        "Day" -> {
-                            consecutiveDecrease = days
-                            if (consecutiveDecrease >= consecutiveDecrease) {
-                                //REDUZIR O INITIAL TIME
-                                initialTimerValue -= secondsDecrease * 1000
-                                if(initialTimerValue<minProgressiveValue) initialTimerValue = minProgressiveValue
-                                arrayDates.clear()
-                                arrayTimes.clear()
-                                arrayDates.add(thisDateArray)
-                                arrayTimes.add(initialTimerValue)
-                                arrayDatesHistory.add(thisDateArray)
-                                arrayTimesHistory.add(initialTimerValue)
-                            }
-                        }
-                        "Week" -> {
-                            consecutiveDecreaseCounter = weeks
-                            if (consecutiveDecreaseCounter >= consecutiveDecrease) {
-                                //REDUZIR O INITIAL TIME
-                                initialTimerValue -= secondsDecrease * 1000
-                                if(initialTimerValue<minProgressiveValue) initialTimerValue = minProgressiveValue
-                                arrayDates.clear()
-                                arrayTimes.clear()
-                                arrayDates.add(thisDateArray)
-                                arrayTimes.add(initialTimerValue)
-                                arrayDatesHistory.add(thisDateArray)
-                                arrayTimesHistory.add(initialTimerValue)
-                            }
-                        }
-                        "Month" -> {
-                            consecutiveDecrease = months
-                            if (consecutiveDecrease >= consecutiveDecrease) {
-                                //REDUZIR O INITIAL TIME
-                                initialTimerValue -= secondsDecrease * 1000
-                                if(initialTimerValue<minProgressiveValue) initialTimerValue = minProgressiveValue
-                                arrayDates.clear()
-                                arrayTimes.clear()
-                                arrayDates.add(thisDateArray)
-                                arrayTimes.add(initialTimerValue)
-                                arrayDatesHistory.add(thisDateArray)
-                                arrayTimesHistory.add(initialTimerValue)
-                            }
-                        }
-                    }*/
 
                 } else if (weeks == 1) {
                     if (consecutiveIncreaseCounter < consecutiveIncrease) {
                         consecutiveIncreaseCounter++
-                        arrayDatesHistory.add(thisDateArray)
-                        arrayTimesHistory.add(initialTimerValue)
                     }
                     if (consecutiveIncreaseCounter == consecutiveIncrease) {
                         arrayDates.clear()
                         arrayTimes.clear()
-                        arrayDates.add(thisDateArray)
-                        arrayTimes.add(initialTimerValue)
-                        arrayDatesHistory.add(thisDateArray)
-                        arrayTimesHistory.add(initialTimerValue)
                         //AUMENTAR O INITIAL TIME
                         initialTimerValue += secondsIncrease * 1000
                         initialTimerForProgressBar+= secondsIncrease * 1000
@@ -736,67 +635,25 @@ class Timer(
                         }
                         consecutiveIncreaseCounter = 0
                     }
+                    arrayDatesHistory.add(thisDateArray)
+                    arrayTimesHistory.add(initialTimerValue)
+                }
+                else{
+                    arrayDatesHistory.add(thisDateArray)
+                    arrayTimesHistory.add(initialTimerValue)
                 }
             }
             "Month" -> {
                 if (months > 1) {
                     consecutiveIncreaseCounter = 1
 
-                    /*when (measurementDecrease) {
-                        "Day" -> {
-                            consecutiveDecrease = days
-                            if (consecutiveDecrease >= consecutiveDecrease) {
-                                //REDUZIR O INITIAL TIME
-                                initialTimerValue -= secondsDecrease * 1000
-                                if(initialTimerValue<minProgressiveValue) initialTimerValue = minProgressiveValue
-                                arrayDates.clear()
-                                arrayTimes.clear()
-                                arrayDates.add(thisDateArray)
-                                arrayTimes.add(initialTimerValue)
-                                arrayDatesHistory.add(thisDateArray)
-                                arrayTimesHistory.add(initialTimerValue)
-                            }
-                        }
-                        "Week" -> {
-                            consecutiveDecrease = weeks
-                            if (consecutiveDecrease >= consecutiveDecrease) {
-                                //REDUZIR O INITIAL TIME
-                                initialTimerValue -= secondsDecrease * 1000
-                                if(initialTimerValue<minProgressiveValue) initialTimerValue = minProgressiveValue
-                                arrayDates.add(thisDateArray)
-                                arrayTimes.add(initialTimerValue)
-                                arrayDatesHistory.add(thisDateArray)
-                                arrayTimesHistory.add(initialTimerValue)
-                            }
-                        }
-                        "Month" -> {
-                            consecutiveDecreaseCounter = months
-                            if (consecutiveDecreaseCounter >= consecutiveDecrease) {
-                                //REDUZIR O INITIAL TIME
-                                initialTimerValue -= secondsDecrease * 1000
-                                if(initialTimerValue<minProgressiveValue) initialTimerValue = minProgressiveValue
-                                arrayDates.clear()
-                                arrayTimes.clear()
-                                arrayDates.add(thisDateArray)
-                                arrayTimes.add(initialTimerValue)
-                                arrayDatesHistory.add(thisDateArray)
-                                arrayTimesHistory.add(initialTimerValue)
-                            }
-                        }
-                    }*/
                 } else if (months == 1) {
                     if (consecutiveIncreaseCounter < consecutiveIncrease) {
                         consecutiveIncreaseCounter++
-                        arrayDatesHistory.add(thisDateArray)
-                        arrayTimesHistory.add(initialTimerValue)
                     }
                     if (consecutiveIncreaseCounter == consecutiveIncrease) {
                         arrayDates.clear()
                         arrayTimes.clear()
-                        arrayDates.add(thisDateArray)
-                        arrayTimes.add(initialTimerValue)
-                        arrayDatesHistory.add(thisDateArray)
-                        arrayTimesHistory.add(initialTimerValue)
                         //AUMENTAR O INITIAL TIME
                         initialTimerValue += secondsIncrease * 1000
                         initialTimerForProgressBar+= secondsIncrease * 1000
@@ -806,6 +663,12 @@ class Timer(
                         }
                         consecutiveIncreaseCounter = 0
                     }
+                    arrayDatesHistory.add(thisDateArray)
+                    arrayTimesHistory.add(initialTimerValue)
+                }
+                else{
+                    arrayDatesHistory.add(thisDateArray)
+                    arrayTimesHistory.add(initialTimerValue)
                 }
             }
         }
