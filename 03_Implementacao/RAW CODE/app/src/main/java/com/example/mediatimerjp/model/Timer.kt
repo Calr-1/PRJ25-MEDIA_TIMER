@@ -612,6 +612,12 @@ class Timer(
                     arrayDatesHistory.add(thisDateArray)
                     arrayTimesHistory.add(initialTimerValue)
                 }
+                else {
+                    arrayDates.add(thisDateArray)
+                    arrayTimes.add(initialTimerValue)
+                    arrayDatesHistory.add(thisDateArray)
+                    arrayTimesHistory.add(initialTimerValue)
+                }
 
             }
             "Week" -> {
@@ -640,6 +646,12 @@ class Timer(
                     arrayDatesHistory.add(thisDateArray)
                     arrayTimesHistory.add(initialTimerValue)
                 }
+                else {
+                    arrayDates.add(thisDateArray)
+                    arrayTimes.add(initialTimerValue)
+                    arrayDatesHistory.add(thisDateArray)
+                    arrayTimesHistory.add(initialTimerValue)
+                }
 
             }
             "Month" -> {
@@ -662,6 +674,12 @@ class Timer(
                         }
                         consecutiveIncreaseCounter = 0
                     }
+                    arrayDates.add(thisDateArray)
+                    arrayTimes.add(initialTimerValue)
+                    arrayDatesHistory.add(thisDateArray)
+                    arrayTimesHistory.add(initialTimerValue)
+                }
+                else {
                     arrayDates.add(thisDateArray)
                     arrayTimes.add(initialTimerValue)
                     arrayDatesHistory.add(thisDateArray)
