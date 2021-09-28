@@ -66,7 +66,7 @@ class IntervalSoundsFragment : Fragment() {
                 size = timer.timer!!.intervalArrayTime.size
             }
             "Random Intervals"->{
-                size = timer.timer!!.intervalArrayRandom.size
+                size = timer.timer!!.notifications.getRandomIntervalsMax()
             }
         }
         sounds = timer.timer!!.sounds

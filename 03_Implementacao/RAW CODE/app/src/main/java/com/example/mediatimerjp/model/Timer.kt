@@ -585,6 +585,8 @@ class Timer(
         if (maxProgressiveValue < minProgressiveValue) maxProgressiveValue = minProgressiveValue
         if (maxProgressiveValue == 0L) maxProgressiveValue =
             initialTimerValue + (secondsIncrease * 3)
+
+
         when (measurementIncrease) {
             "Day" -> {
                 if (days > 1) {
