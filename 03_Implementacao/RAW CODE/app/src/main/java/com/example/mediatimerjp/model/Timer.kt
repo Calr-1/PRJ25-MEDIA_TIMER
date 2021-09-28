@@ -605,13 +605,12 @@ class Timer(
                         }
                         consecutiveIncreaseCounter = 0
                     }
+                    arrayDates.add(thisDateArray)
+                    arrayTimes.add(initialTimerValue)
                     arrayDatesHistory.add(thisDateArray)
                     arrayTimesHistory.add(initialTimerValue)
                 }
-                else{
-                    arrayDatesHistory.add(thisDateArray)
-                    arrayTimesHistory.add(initialTimerValue)
-                }
+
             }
             "Week" -> {
                 if (weeks > 1) {
@@ -634,13 +633,12 @@ class Timer(
                         }
                         consecutiveIncreaseCounter = 0
                     }
+                    arrayDates.add(thisDateArray)
+                    arrayTimes.add(initialTimerValue)
                     arrayDatesHistory.add(thisDateArray)
                     arrayTimesHistory.add(initialTimerValue)
                 }
-                else{
-                    arrayDatesHistory.add(thisDateArray)
-                    arrayTimesHistory.add(initialTimerValue)
-                }
+
             }
             "Month" -> {
                 if (months > 1) {
@@ -662,16 +660,14 @@ class Timer(
                         }
                         consecutiveIncreaseCounter = 0
                     }
-                    arrayDatesHistory.add(thisDateArray)
-                    arrayTimesHistory.add(initialTimerValue)
-                }
-                else{
+                    arrayDates.add(thisDateArray)
+                    arrayTimes.add(initialTimerValue)
                     arrayDatesHistory.add(thisDateArray)
                     arrayTimesHistory.add(initialTimerValue)
                 }
             }
         }
-        Toast.makeText(context, consecutiveIncreaseCounter.toString(), Toast.LENGTH_SHORT).show()
+        //Toast.makeText(context, consecutiveIncreaseCounter.toString(), Toast.LENGTH_SHORT).show()
         common.updateView("timer", false)
     }
 
