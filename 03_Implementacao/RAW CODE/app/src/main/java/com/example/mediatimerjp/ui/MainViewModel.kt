@@ -47,7 +47,6 @@ class MainViewModel(
             timer.context = context
             timer.timer?.context = context
             timer.timer!!.name = timer.name
-            timer.groupAssociated = timer.timer?.groupAssociated
             timer.setColors(context)
             timer.timer?.timerColors = timer.timerColors
             timer.timer!!.setId()
@@ -60,7 +59,6 @@ class MainViewModel(
             timer.context = context
             timer.timer?.context = context
             timer.group!!.name = timer.name
-            timer.groupAssociated = timer.group?.groupAssociated
             timer.group?.itself = timer
             timer.setColors(context)
             timer.group?.timerColors = timer.timerColors
@@ -132,7 +130,6 @@ class MainViewModel(
                 timer.indicator.value = timer.timer!!.mode
                 timer.id = timer.timer!!.id
                 timer.name = timer.timer!!.name
-                timer.groupAssociated = timer.timer?.groupAssociated
                 timer.timerColors = timer.timer!!.timerColors
                 timer.favourite = timer.timer!!.favorite
                 listOfTimers.add(timer)
@@ -142,7 +139,6 @@ class MainViewModel(
                 timer.group?.setGroup(it, timer)
                 timer.id = timer.group!!.id
                 timer.name = timer.group!!.name
-                timer.groupAssociated = timer.group?.groupAssociated
                 timer.group?.itself = timer
                 timer.timerColors = timer.group!!.timerColors
                 timer.favourite = timer.group!!.favorite

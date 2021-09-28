@@ -114,7 +114,6 @@ class TimerAdapter :
                 }
             }
         }
-
         @RequiresApi(Build.VERSION_CODES.Q)
         fun bind(item: TimerCommon) {
             binding.apply {
@@ -135,16 +134,16 @@ class TimerAdapter :
                     binding.favouriteTimerSelector.setImageResource(R.drawable.ic_baseline_favorite_border_24)
                 }
                 if (item.type == "timer") {
-                    item.updateView(item.type, item.timer!!.finished)
+                    item.updateView(item.type, false)
                     if (item.timer!!.enableProgressiveTimer) binding.typeOfTimer.setImageResource(R.drawable.ic_progressivetimer)
                     else binding.typeOfTimer.visibility = View.INVISIBLE
                 } else {
-                    item.updateView(item.type, true)
+                    item.updateView(item.type, false)
                     binding.typeOfTimer.setImageResource(R.drawable.ic_group)
                 }
                 if (item.type == "group") {
                     for (it in item.group?.timersAssociated!!) {
-                        it.context = binding.root.context
+                        it.setContexts(binding.root.context)
                     }
 
                 }
@@ -153,7 +152,6 @@ class TimerAdapter :
                     item.alterButton(1)
                 } else if (item.timer?.finished == true) {
                     item.alterButton(2)
-                    binding.progressBar.progress = 100
                 }
                 timers = item
 
@@ -184,6 +182,7 @@ class TimerAdapter :
             popupMenu.show()
         }
 
+        @SuppressLint("UseCompatLoadingForDrawables")
         fun setColors(item: TimerCommon) {
             if (item.type == "timer") {
                 val texts: ArrayList<Any> = ArrayList<Any>()
@@ -318,8 +317,21 @@ class TimerAdapter :
                     val favouriteB: ImageView = binding.favouriteTimerSelector
                     favouriteB.setColorFilter(Color.parseColor(hexColor))
                     for (tm in item.group!!.timersAssociated) {
-                        tm.timerColors = item.timerColors
+                        tm.timerColors.backgroundColor = item.timerColors.backgroundColor
+                        tm.timerColors.buttonBackground = item.timerColors.buttonBackground
+                        tm.timerColors.textColor = item.timerColors.textColor
+                        tm.timerColors.buttonIconColor = item.timerColors.buttonIconColor
+                        tm.timerColors.favouriteColor = item.timerColors.favouriteColor
+                        if(tm.type=="timer"){
+                            tm.timer!!.timerColors = tm.timerColors
+                        }
+                        else{
+                            tm.group!!.timerColors = tm.timerColors
+                        }
+
                     }
+
+
                     var themeId = TimerWrapper.getInstance().getThemeID(binding.root.context)
 
                     if(themeId == 0){

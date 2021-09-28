@@ -1,20 +1,22 @@
 package com.example.mediatimerjp.model
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.example.mediatimerjp.database.Database
 
 
-class  TimerGroup(var actualTime: Long) {
+class TimerGroup(var actualTime: Long) {
 
     var mode = "HH/MM/SS"
     var sequence = true
     var stopAtZero = false
     var skipGroups = false
-    private var currentRunning = 0
+    var currentRunning = 0
     var propagateTheme = true
     var name = ""
-    var id:String = ""
+    var id: String = ""
     lateinit var timerColors: TimerColors
+    var progress = MutableLiveData<Int>()
 
     var timersAssociated: ArrayList<TimerCommon> = ArrayList()
 
@@ -23,48 +25,49 @@ class  TimerGroup(var actualTime: Long) {
     lateinit var itself: TimerCommon
 
     var favorite = false
+    var running = false
 
 
     fun restart() {
         for (timer in timersAssociated) {
             timer.restartTimer()
+            itself.updateView("group",true)
         }
     }
-
-    fun setId(){
+    fun setId() {
         if (id == "") id = Database.getKey(id)
     }
 
     fun action(timerCommon: TimerCommon? = null) {
         Log.e("Current", currentRunning.toString())
 
-        if(timerCommon==null){
-            for(i in currentRunning until timersAssociated.size){
-                if(!(timersAssociated[i].type=="group" && skipGroups) && timersAssociated[i].active){
-                    if(timersAssociated[i].getRemainderTime()>0) {
+        if (timerCommon == null) {
+            for (i in currentRunning until timersAssociated.size) {
+                if (!(timersAssociated[i].type == "group" && skipGroups) && timersAssociated[i].active) {
+                    if (timersAssociated[i].getRemainderTime() > 0) {
                         timersAssociated[i].doAction()
                         break
                     }
                 }
             }
-        }
-
-        else{
-            if(currentRunning<timersAssociated.size-1){
-                var idx = 0
-                for (timer in timersAssociated){
-                    if (timer==timerCommon){
-                        idx = timersAssociated.indexOf(timer)
-                        break
-                    }
-                    else if (timer.id==timerCommon.id){
-                        idx = timersAssociated.indexOf(timer)
-                        break
-                    }
+        } else {
+            var idx = 0
+            var tempCount = 0
+            for (timer in timersAssociated) {
+                tempCount++
+                if (timer == timerCommon) {
+                    idx = timersAssociated.indexOf(timer)
+                    break
+                } else if (timer.id == timerCommon.id) {
+                    idx = tempCount
+                    break
                 }
-                idx += 1
-                currentRunning=idx
-                if(timersAssociated[currentRunning].active) {
+            }
+            idx += 1
+            Log.e("IDX", idx.toString())
+            if (idx < timersAssociated.size) {
+                currentRunning = idx
+                if (timersAssociated[currentRunning].active) {
                     if (stopAtZero) {
                         if (timerCommon.groupAssociated != null) {
                             timerCommon.groupAssociated!!.doAction()
@@ -76,19 +79,18 @@ class  TimerGroup(var actualTime: Long) {
                             timersAssociated[currentRunning].doAction()
                         }
                     }
-                }
-                else{
+                } else {
                     this.action(timersAssociated[currentRunning])
                 }
-            }
-            else {
-                if(timerCommon.groupAssociated!=null){
-                    timerCommon.groupAssociated!!.doAction()
+            } else {
+                currentRunning = 0
+                if (groupAssociated != null) {
+                    groupAssociated?.group!!.action(itself)
                 }
-                currentRunning=0
             }
         }
     }
+
 
     fun getGroupToSave(group: TimerCommon): TimerToSave {
         val arrayTimers = ArrayList<TimerToSave>()
@@ -98,7 +100,7 @@ class  TimerGroup(var actualTime: Long) {
                 it.group!!.let { it1 -> arrayTimers.add(it1.getGroupToSave(it)) }
             }
         }
-        if (group.group!!.id=="") group.group!!.id = Database.getKey("")
+        if (group.group!!.id == "") group.group!!.id = Database.getKey("")
         val groupToSave = TimerToSave(
             group.type,
             group.name,
@@ -137,7 +139,7 @@ class  TimerGroup(var actualTime: Long) {
             group.group!!.currentRunning,
             group.timerColors,
             group.group!!.id,
-            null,
+            group.group!!.propagateTheme,
             null,
             null,
             null,
@@ -162,6 +164,8 @@ class  TimerGroup(var actualTime: Long) {
         currentRunning = groupToSave.currentRunning!!
         name = groupToSave.name!!
         timerColors = groupToSave.timerColors!!
+        propagateTheme = if (groupToSave.canNotify != null) groupToSave.canNotify!!
+        else true
         if (groupAssociated != null) {
             groupAssociated.timerColors = groupToSave.timerColors!!
         }
@@ -181,7 +185,7 @@ class  TimerGroup(var actualTime: Long) {
                 timer.group!!.itself = timer
                 timer.group!!.groupAssociated = groupAssociated
                 timer.groupAssociated = groupAssociated
-                timer.group!!.setGroup(it, groupAssociated)
+                timer.group!!.setGroup(it, timer)
                 timer.id = timer.group!!.id
                 timer.favourite = timer.group!!.favorite
                 timersAssociated.add(timer)
@@ -189,8 +193,8 @@ class  TimerGroup(var actualTime: Long) {
         }
     }
 
-    fun addTimer(timer:TimerCommon): Boolean{
-        if(!timersAssociated.contains(timer)){
+    fun addTimer(timer: TimerCommon): Boolean {
+        if (!timersAssociated.contains(timer)) {
             timersAssociated.forEach {
                 if (it.id == timer.id) return false
             }
@@ -200,7 +204,7 @@ class  TimerGroup(var actualTime: Long) {
         return false
     }
 
-    fun removeTimer(timer:TimerCommon){
+    fun removeTimer(timer: TimerCommon) {
         timersAssociated.remove(timer)
     }
 

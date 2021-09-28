@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mediatimerjp.R
+import com.example.mediatimerjp.model.TimerColors
 import com.example.mediatimerjp.model.TimerCommon
 import com.example.mediatimerjp.model.TimerWrapper
 
@@ -365,6 +366,30 @@ class ColorPickerFragment : Fragment() {
     fun onBackPressed() {
         resetColor()
     }
+    private fun setColors(currentColors : TimerColors, colors : TimerColors){
+        currentColors.backgroundColor = colors.backgroundColor
+        currentColors.buttonBackground = colors.buttonBackground
+        currentColors.textColor = colors.textColor
+        currentColors.buttonIconColor = colors.buttonIconColor
+        currentColors.favouriteColor = colors.favouriteColor
+
+    }
+    private fun setAllColors(){
+        if(timer.group!!.propagateTheme){
+            for(timers in timer.group!!.timersAssociated){
+                if(timers.type=="timer"){
+                    timers.timer?.let { setColors(it.timerColors,timer.group!!.timerColors) }
+                    timers.timerColors = timers.timer?.timerColors!!
+
+                }
+                else{
+                    timers.group?.let { setColors(it.timerColors,timer.group!!.timerColors) }
+                    timers.timerColors = timers.group?.timerColors!!}
+
+            }
+
+        }
 
 
+    }
 }

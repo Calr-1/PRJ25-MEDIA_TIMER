@@ -51,7 +51,6 @@ class IntervalSoundsFragment : Fragment() {
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         timer = arguments?.getParcelable("timer")!!
@@ -107,13 +106,12 @@ class IntervalSoundsFragment : Fragment() {
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     fun createIntervalsList(size: Int, sounds: ArrayList<Uri>) {
         for (i in 0 until size) {
             var uri: Uri? = null
             if (sounds.size > 0 && i < sounds.size) {
                 uri = sounds[i]
-                if (!Objects.isNull(uri) && uri!=Uri.EMPTY) {
+                if (uri!=null && uri!=Uri.EMPTY) {
                     val value_split = uri.toString().split("/").toTypedArray()
                     intervalSounds.add(
                         IntervalSound(

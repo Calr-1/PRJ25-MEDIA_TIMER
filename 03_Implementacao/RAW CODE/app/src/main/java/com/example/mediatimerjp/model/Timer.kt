@@ -151,9 +151,7 @@ class Timer(
                 currentTimerValue = p0
                 progress.value = (100.0 * currentTimerValue / initialTimerForProgressBar).toInt()
                 common.updateView("timer", finished)
-                if(common.groupAssociated!=null){
-                    common.groupAssociated!!.updateView("group", true)
-                }
+
                 when (notifications.getTypeOfInterval()) {
                     "Number of Intervals" -> {
                         if (intervalArrayNumber.isNotEmpty()) {
@@ -336,6 +334,7 @@ class Timer(
             initialTimerValue = currentTimerValue
             common.updateView("timer", finished)
             canNotify = true
+            progress.value = 100
         }
     }
 

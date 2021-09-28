@@ -40,7 +40,9 @@ class GroupViewModel constructor(
             val timer = TimerCommon("timer", "Timer $timerCount")
             timer.context = context
             timer.groupAssociated = group
+            timer.timer!!.groupAssociated = group
             timer.setColors(context)
+            if(group!!.group!!.propagateTheme) setColors(timer.timerColors, group!!.group!!.timerColors)
             timer.timer!!.timerColors = timer.timerColors
             timer.timer!!.name = timer.name
             timer.timer!!.setId()
@@ -52,7 +54,9 @@ class GroupViewModel constructor(
             timer.context = context
             timer.group?.itself = timer
             timer.groupAssociated = group
+            timer.group!!.groupAssociated = group
             timer.setColors(context)
+            if(group!!.group!!.propagateTheme) setColors(timer.timerColors, group!!.group!!.timerColors)
             timer.group!!.timerColors = timer.timerColors
             timer.group!!.name = timer.name
             listOfTimers.add(timer)
@@ -62,7 +66,14 @@ class GroupViewModel constructor(
         TimerWrapper.getInstance().saveTimersToSharedPreference(context, "SaveFile")
 
     }
-    
+    private fun setColors(currentColors : TimerColors, colors : TimerColors){
+        currentColors.backgroundColor = colors.backgroundColor
+        currentColors.buttonBackground = colors.buttonBackground
+        currentColors.textColor = colors.textColor
+        currentColors.buttonIconColor = colors.buttonIconColor
+        currentColors.favouriteColor = colors.favouriteColor
+
+    }
 
     fun swapTimers(first: Int, second: Int) {
         listOfTimers[first].name.let { Log.e("drag", it) }
@@ -78,6 +89,20 @@ class GroupViewModel constructor(
     fun setLists() {
         listOfTimers = group?.group?.timersAssociated!!
         timerList.value = listOfTimers
+        var timerTemp = 0
+        var groupTemp = 0
+
+        for(time in listOfTimers){
+            if(time.type=="timer"){
+                timerTemp++
+            }
+            if(time.type=="group"){
+                groupTemp++
+            }
+        }
+        timerCount = timerTemp
+        groupCount = groupTemp
+
     }
 
     fun removeTimer(timer: TimerCommon) {

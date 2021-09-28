@@ -47,13 +47,12 @@ class GroupFragment : Fragment() {
                 ItemTouchHelper.ACTION_STATE_SWIPE ->
                     Log.d("DragTest","Start to swipe: $actionState")
                 ItemTouchHelper.ACTION_STATE_IDLE -> {
-                    if (viewModel.timerList.value?.get(endPosition)?.type  == "timer") {
                         viewModel.swapTimers(startPosition, endPosition)
                         val adapter = TimerAdapter()
                         binding.timerList.adapter = adapter
                         viewModel.timerAdapter = adapter
                         subscribeUi(adapter)
-                    }
+
                 }
             }
         }
